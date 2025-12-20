@@ -6,13 +6,9 @@ const adid = require('uuid');
 const totp = require('totp-generator');
 const logger = require("./utils/log");
 
-// Random color for simple console logs
 const colors = ["FF9900","FFFF33","33FFFF","FF99FF","FF3366","FFFF66","FF00FF","66FF99"];
 const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-// ====================================
-// Module & Package Check
-// ====================================
 fs.readFile('package.json', 'utf8', (err, data) => {
   if (err) return;
   try {
@@ -35,9 +31,6 @@ try {
   console.log(error);
 }
 
-// ====================================
-// Bot Startup
-// ====================================
 function startBot(message) {
   if(message) logger(message, "[START]");
 
@@ -59,10 +52,6 @@ function startBot(message) {
       logger("Error occurred: " + JSON.stringify(error), "[START]");
   });
 }
-
-// ====================================
-// Facebook Login
-// ====================================
 const logacc = require('./acc.json');
 const config = require('./config.json');
 
@@ -169,9 +158,6 @@ function sort(obj) {
   return Object.keys(obj).sort().reduce((res, key) => { res[key] = obj[key]; return res; }, {});
 }
 
-// ====================================
-// Start Bot / Login Flow
-// ====================================
 async function startb() {
   if(config.ACCESSTOKEN !== "") {
     startBot();
@@ -181,17 +167,11 @@ async function startb() {
   }
 }
 
-// ====================================
-// HTTP Server / Port
-// ====================================
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.get('/', (req, res) => res.send('Mirai Bot is running.'));
+app.get('/', (req, res) => res.send('Maria v3 is running.'));
 app.listen(PORT, () => console.log(`[SERVER] Listening on port ${PORT}`));
 
-// ====================================
-// Launch Bot
-// ====================================
 startb();
