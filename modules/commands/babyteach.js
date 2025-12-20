@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 // rX Api Authur rX Abdullah
-const GITHUB_API_URL = "https://raw.githubusercontent.com/rummmmna21/rx-api/main/baseApiUrl.json";
+const GITHUB_API_URL = "https://raw.githubusercontent.com/rxabdullah0007/rX-apis/main/xApis/rXallApi.json";
 
 let mentionApiUrl = "";
 
