@@ -41,7 +41,7 @@ module.exports = function ({ api, models }) {
             }
         });
    const timechecktt = moment.tz('Asia/Dhaka').format('DD/MM/YYYY || HH:mm:ss'); 
-    const haha = `\n────────────────────\n💬 Tổng tin nhắn: ${storage.reduce((a, b) => a + b.count, 0)}\n⏰ Time: ${timechecktt}\n✏️ Các bạn khác cố gắng tương tác nếu muốn lên top nha`;    
+    const haha = `\n────────────────────\n💬 Total messages: ${storage.reduce((a, b) => a + b.count, 0)}\n⏰ Time: ${timechecktt}\n✏️ Các bạn khác cố gắng tương tác nếu muốn lên top nha`;    
         let checkttBody = '[ TOP TƯƠNG TÁC NGÀY ]\n────────────────────\n📝 Top 10 người tương tác nhiều nhất hôm qua:\n\n';
         checkttBody += storage.slice(0, 10).map(item => {
           return `${count++}. ${item.name} - 💬 ${item.count} tin nhắn`;
@@ -177,12 +177,12 @@ logger.loader(`Ping load source code: ${Date.now() - global.client.timeStart}ms`
   const checkTime = (time) => new Promise((resolve) => {
     time.forEach((e, i) => time[i] = parseInt(String(e).trim()));
     const getDayFromMonth = (month) => (month == 0) ? 0 : (month == 2) ? (time[2] % 4 == 0) ? 29 : 28 : ([1, 3, 5, 7, 8, 10, 12].includes(month)) ? 31 : 30;
-    if (time[1] > 12 || time[1] < 1) resolve("[🦑]➜ Tháng của bạn có vẻ không hợp lệ");
-    if (time[0] > getDayFromMonth(time[1]) || time[0] < 1) resolve("[🦑]➜ Ngày của bạn có vẻ không hợp lệ");
-    if (time[2] < 2022) resolve("[🦑]➜ Bạn sống ở kỷ nguyên nào thế?");
-    if (time[3] > 23 || time[3] < 0) resolve("[🦑]➜ Giờ của bạn có vẻ không hợp lệ");
-    if (time[4] > 59 || time[3] < 0) resolve("[🦑]➜ Phút của bạn có vẻ không hợp lệ");
-    if (time[5] > 59 || time[3] < 0) resolve("[🦑]➜ Giây của bạn có vẻ không hợp lệ");
+    if (time[1] > 12 || time[1] < 1) resolve("[🦑]➜ The month you entered seems invalid");
+    if (time[0] > getDayFromMonth(time[1]) || time[0] < 1) resolve("[🦑]➜ The day you entered seems invalid");
+    if (time[2] < 2022) resolve("[🦑]➜ Which era are you living in?");
+    if (time[3] > 23 || time[3] < 0) resolve("[🦑]➜ The hour you entered seems invalid");
+    if (time[4] > 59 || time[3] < 0) resolve("[🦑]➜ The minutes you entered seem invalid");
+    if (time[5] > 59 || time[3] < 0) resolve("[🦑]➜ The seconds you entered seem invalid");
     yr = time[2] - 1970;
     yearToMS = (yr) * 365 * 24 * 60 * 60 * 1000;
     yearToMS += ((yr - 2) / 4).toFixed(0) * 24 * 60 * 60 * 1000;
@@ -285,7 +285,7 @@ return async (event) => {
       if (findAnti) {
         if (findAd || botID.includes(author)) {
           // api.sendMessage(
-          //   `» [ CẬP NHẬT NHÓM ] ${event.snippet}`,
+          //   `» [ Made by rX ] ${event.snippet}`,
           //   event.threadID
           // );
           var img = global.utils.imgur(imgage.link, 'jpg');
@@ -294,7 +294,7 @@ return async (event) => {
            fs.writeFileSync(global.anti, jsonData);
         } else {
           const res = await axios.get(findAnti.url, { responseType: "stream" });
-          api.sendMessage(`⚠️ Kích hoạt chế độ chống đổi ảnh nhóm\n⏰ Time: ${moment().tz("Asia/Ho_Chi_Minh").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
+          api.sendMessage(`⚠️ Group profile picture change protection mode activated\n⏰ Time: ${moment().tz("Asia/Dhaka").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
           return api.changeGroupImage(res.data, threadID);
         }
       }
@@ -340,7 +340,7 @@ return async (event) => {
           const jsonData = JSON.stringify(data_anti, null, 4);
            fs.writeFileSync(global.anti, jsonData);
         } else {
-          api.sendMessage(`⚠️ Kích hoạt chế độ chống đổi biệt danh người dùng\n⏰ Time: ${moment().tz("Asia/Dhaka").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
+          api.sendMessage(`⚠️ User nickname change protection mode activated\n⏰ Time: ${moment().tz("Asia/Dhaka").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
           return api.changeNickname(
             findAnti.data[logMessageData.participant_id] || "",
             threadID,
@@ -363,10 +363,10 @@ logMessageData.leftParticipantFbId,
             threadID,
             (error, info) => {
               if (error) {
- api.sendMessage(`⚠️ Kích hoạt chế độ tự động thêm người dùng khi tự ý rời nhóm\n🔰 Trạng thái: Thất Bại\n👤 Người dùng: https://www.facebook.com/profile.php?id=${logMessageData.leftParticipantFbId}\n⏰ Thời gian: ${moment().tz("Asia/Ho_Chi_Minh").format("HH:mm:ss || DD/MM/YYYY")}\n⛔ Nếu bot thêm thất bại có thể người dùng đã chặn bot`, threadID);
-              } else
-  api.sendMessage(`⚠️ Kích hoạt chế độ tự động thêm người dùng khi tự ý rời nhóm\n🔰 Trạng thái: Thành Công\n👤 Người dùng: https://www.facebook.com/profile.php?id=${logMessageData.leftParticipantFbId}\n⏰ Thời gian: ${moment().tz("Asia/Ho_Chi_Minh").format("HH:mm:ss || DD/MM/YYYY")}\n⛔ Nếu bot thêm thất bại có thể người dùng đã chặn bot`, threadID);
-       });
+ api.sendMessage(`⚠️ Auto-add mode triggered when a user leaves the group\n🔰 Status: Failed\n👤 User: https://www.facebook.com/profile.php?id=${logMessageData.leftParticipantFbId}\n⏰ Time: ${moment().tz("Asia/Dhaka").format("HH:mm:ss || DD/MM/YYYY")}\n⛔ If the bot fails to add, the user may have blocked the bot.`, threadID);
+} else
+api.sendMessage(`⚠️ Auto-add mode triggered when a user leaves the group\n🔰 Status: Success\n👤 User: https://www.facebook.com/profile.php?id=${logMessageData.leftParticipantFbId}\n⏰ Time: ${moment().tz("Asia/Dhaka").format("HH:mm:ss || DD/MM/YYYY")}\n⛔ If the bot fails to add, the user may have blocked the bot.`, threadID);
+        });
      }
   }
 }
@@ -384,7 +384,7 @@ logMessageData.leftParticipantFbId,
      };
      let find_thuebot = thuebot.find($ => $.t_id == event.threadID);
      if (((global.data.threadData.get(event.threadID)?.PREFIX || global.config.PREFIX) + 'callad') != event.args[0]) {
-        if (!find_thuebot) return api.shareContact(`\n❎ ${name} The group is not in my list. Please contact the admin to get this group approved`, global.config.NDH[0], event.threadID);
+        if (!find_thuebot) return api.shareContact(`\n❎ Hey ${name}, I can't find this group in my list. Please reach out to the admin to get it approved`, global.config.NDH[0], event.threadID);
         if (new Date(form_mm_dd_yyyy(find_thuebot.time_end)).getTime() <= Date.now()) return api.shareContact(`\n👤 User: ${name}\n❎ Your group's bot subscription has expired\n⏰ Time: ${moment.tz("Asia/Dhaka").format("DD/MM/YYYY || HH:mm:ss")}`, global.config.NDH[0], event.threadID);
      };
   };
