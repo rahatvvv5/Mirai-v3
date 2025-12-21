@@ -1,8 +1,8 @@
 module.exports.config = {
 	name: "setname",
-	version: "1.0.0",
+	version: "2.0.2",
 	hasPermssion: 0,
-	credits: "𝐂𝐘𝐁𝐄𝐑 ☢️_𖣘 -𝐁𝐎𝐓 ⚠️ 𝑻𝑬𝑨𝑴_ ☢️",
+	credits: "rX",
 	description: "Change the nickname in your group or the person you tag",
 	commandCategory: "Box Chat",
 	usages: "[name]",
