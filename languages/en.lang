@@ -58,12 +58,12 @@ users.needObject=Have to be an Object
 
 # includes/handle/handleCommand.js
 
-handleCommand.userBanned=
+handleCommand.userBanned=𝐘𝐨𝐮 𝐰𝐚𝐬 𝐁𝐚𝐧𝐧𝐞𝐝 𝐟𝐫𝐨𝐦 𝐭𝐡𝐢𝐬 𝐛𝐨𝐱-!!🚫
 handleCommand.threadBanned=Group Has Been Banned..!⛔️\nPlease Contact Owner Rahat Boss  For Unban ⚠️
 handleCommand.onlyprefix=> 🎀\nιт'ѕ ʝυѕт му ρяєƒιχ
 handleCommand.commandNotExist=❌প্রিয় এই কমান্ডটা নাই😌🍼\nএইটা আছে ➤ %1 
 handleCommand.commandUserBanned=You are unable to use command "%1"
-handleCommand.threadNotAllowNSFW=This Commnd Only for rX
+handleCommand.threadNotAllowNSFW=This Commnd use only Rahat
 handleCommand.cantGetInfoThread=Can't get your thread's info, error: %1
 handleCommand.permissionNotEnough="%1"বোকাচোদা🫩🙏\n❌এই কমান্ডটা শুধু আমার বস এর জন্য💩🫵
 handleCommand.cantSetMessageReaction=Having some unexpected error at setMessageReaction, error: %1
