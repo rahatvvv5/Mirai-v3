@@ -16,10 +16,10 @@
     "FACEBOOK_ADMIN": "rxabdullah007",
     "ZALO_ADMIN": "",
     "ADMIN_NAME": "rX",
-    "BOTNAME": "Sııƞƞeɽ v3 倫ッ",
+    "BOTNAME": "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
     "PREFIX": "!",
     "ADMINBOT": [
-        "100068565380737",
+        "61582708907708",
         "61579782879961"
     ],
     "NDH": [
@@ -70,7 +70,7 @@
     "version": "4.6.9",
     "iconUnsend": {
         "status": true,
-        "icon": "😡"
+        "icon": "🤬"
     },
     "FCAOption": {
         "forceLogin": true,
