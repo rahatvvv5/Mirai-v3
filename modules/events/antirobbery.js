@@ -1,8 +1,8 @@
 module.exports.config = {
-    name: "guard",
+    name: "protect2",
     eventType: ["log:thread-admins"],
     version: "1.0.0",
-    credits: "rX",
+    credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
     description: "Prevent admin changes",
 };
 
