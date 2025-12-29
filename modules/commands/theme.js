@@ -6,7 +6,7 @@ module.exports.config = {
   name: "theme",
   version: "3.4.0",
   hasPermssion: 2,
-  credits: "rX Abdullah",
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "Search AI/custom themes with preview and apply by reply (minimal message)",
   commandCategory: "system",
   usages: "!theme <prompt>",
@@ -104,7 +104,7 @@ module.exports.handleReply = async function({ api, event, handleReply }) {
     // Apply theme using api
     if (typeof api.setThreadThemeMqtt === "function") {
       await api.setThreadThemeMqtt(threadID, themeID);
-      api.sendMessage(`✅ Theme applied successfully!\nSelected theme: ${selected.name}`, threadID);
+      api.sendMessage(`✅ Theme applied successfully!\n🔰Selected theme: ${selected.name}`, threadID);
     } else {
       api.sendMessage("⚠️ Bot does not support setThreadThemeMqtt.", threadID);
     }
