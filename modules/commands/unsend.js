@@ -1,9 +1,9 @@
 module.exports.config = {
 	name: "unsend",
 	version: "1.2.0",
-	hasPermssion: 0,
-	credits: "rX",
-	description: "react 😡 to unsent",
+	hasPermssion: 2,
+	credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
+	description: " unsent",
 	commandCategory: "system",
 	usages: "unsend",
 	cooldowns: 0
