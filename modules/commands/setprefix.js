@@ -1,8 +1,8 @@
 module.exports.config = {
 	name: "setprefix",
 	version: "1.0.1",
-	hasPermssion: 0,
-	credits: "rX",
+	hasPermssion: 2,
+	credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
 	description: "Reset group prefix",
 	commandCategory: "Group",
 	usages: "[prefix/reset]",
@@ -17,10 +17,10 @@ module.exports.languages ={
 		"confirmChange": "Bạn có chắc bạn muốn đổi prefix của nhóm thành: %1"
 	},
 	"en": {
-		"successChange": "> 🎀\n𝐂𝐡𝐚𝐧𝐠𝐞𝐝 𝐩𝐫𝐞𝐟𝐢𝐱 𝐢𝐧𝐭𝐨: %1",
-		"missingInput": "> 🎀\n𝐏𝐫𝐞𝐟𝐢𝐱 𝐡𝐚𝐯𝐞 𝐧𝐨𝐭 𝐭𝐨 𝐛𝐞 𝐛𝐥𝐚𝐧𝐤",
-		"resetPrefix": "> 🎀\n 𝐏𝐫𝐞𝐟𝐢𝐱 𝐭𝐨: %1",
-		"confirmChange": "> 🎀\n𝐀𝐫𝐞 𝐲𝐨𝐮 𝐬𝐮𝐫𝐞 𝐭𝐡𝐚𝐭 𝐲𝐨𝐮 𝐰𝐚𝐧𝐭 𝐭𝐨 𝐜𝐡𝐚𝐧𝐠𝐞 𝐩𝐫𝐞𝐟𝐢𝐱 𝐢𝐧𝐭𝐨: %1"
+		"successChange": "✅𝐂𝐡𝐚𝐧𝐠𝐞𝐝 𝐩𝐫𝐞𝐟𝐢𝐱 𝐢𝐧𝐭𝐨: %1",
+		"missingInput": "❌𝐏𝐫𝐞𝐟𝐢𝐱 𝐡𝐚𝐯𝐞 𝐧𝐨𝐭 𝐭𝐨 𝐛𝐞 𝐛𝐥𝐚𝐧𝐤",
+		"resetPrefix": "🔰𝐏𝐫𝐞𝐟𝐢𝐱 𝐭𝐨: %1",
+		"confirmChange": "🔰𝐀𝐫𝐞 𝐲𝐨𝐮 𝐬𝐮𝐫𝐞 𝐭𝐡𝐚𝐭 𝐲𝐨𝐮 𝐰𝐚𝐧𝐭 𝐭𝐨 𝐜𝐡𝐚𝐧𝐠𝐞 𝐩𝐫𝐞𝐟𝐢𝐱 𝐢𝐧𝐭𝐨: %1"
 	}
 }
 
