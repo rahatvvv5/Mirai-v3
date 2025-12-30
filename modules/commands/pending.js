@@ -22,7 +22,7 @@ module.exports.languages = {
     "en": {
         "invaildNumber": "%1 is not an invalid number",
         "cancelSuccess": "Refused %1 thread!",
-        "notiBox": "｡ﾟ･｡･ﾟﾟ｡\nﾟ。𝙂𝙧𝙤𝙪𝙥 𝙖𝙥𝙥𝙧𝙤𝙫𝙚𝙙✨\n　ﾟ･｡･тнαηкѕ ƒσя υѕιηg мαяια ν3❤ •˚⠀", 
+        "notiBox": "🔥𝙂𝙧𝙤𝙪𝙥 𝘼𝙥𝙥𝙧𝙤𝙫𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮🔥\n📞 𝑪𝒐𝒏𝒕𝒂𝒄𝒕👇\n👉 https://rahat-17.netlify.app/", 
         "approveSuccess": "Approved successfully %1 threads!",
 
         "cantGetPendingList": "Can't get the pending list!",
