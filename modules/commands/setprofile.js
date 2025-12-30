@@ -2,7 +2,7 @@ module.exports.config = {
   name: "setprofile",
   version: "1.0.0",
   hasPermssion: 2,
-  credits: "rX Abdullah",
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "Reply to a photo to set it as bot's profile picture",
   commandCategory: "Admin",
   usages: "[reply to image]",
@@ -25,7 +25,7 @@ module.exports.run = async function({ api, event }) {
     api.sendMessage("⏳ প্রোফাইল ছবি সেট করা হচ্ছে...", event.threadID, event.messageID);
 
     // Use FCA's built-in function
-    api.changeAvatarV2(imageUrl, "Updated by rX Bot 🤖", (err, res) => {
+    api.changeAvatarV2(imageUrl, "Updated by Rahat Bot🤖", (err, res) => {
       if (err) {
         console.error(err);
         return api.sendMessage("❌ প্রোফাইল ছবি পরিবর্তন ব্যর্থ হয়েছে!", event.threadID, event.messageID);
