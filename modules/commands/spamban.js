@@ -3,8 +3,8 @@ const timee = 120 // During `timee` spam `num` times will be banned
 module.exports.config = {
   name: "spamban",
   version: "2.0.0",
-  hasPermssion: 0,
-  credits: "rX",
+  hasPermssion: 2,
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: `automatically ban users if spam bots ${num} time/${timee}s`,
   commandCategory: "System",
   usages: "x",
@@ -56,7 +56,7 @@ module.exports.handleEvent = async function ({ Users, Threads, api, event})  {
         timeStart: Date.now(),
         number: 0
       };
-      api.sendMessage("🔗 Reported via: https://www.facebook.com/rxabdullah007\n👤 ID: " + senderID + " \n📛 Name: " + dataUser.name + `\n🚫 Reason: spam bot ${num} time/${timee}s\n\n📩 Report sent to admin bot`, threadID,
+      api.sendMessage("🔗 Reported via: https://www.facebook.com/61582708907708\n👤 ID: " + senderID + " \n📛 Name: " + dataUser.name + `\n🚫 Reason: spam bot ${num} time/${timee}s\n\n📩 Report sent to admin bot`, threadID,
     () => {
     var idad = global.config.ADMINBOT;
     for(let ad of idad) {
