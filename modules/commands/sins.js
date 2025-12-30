@@ -2,7 +2,7 @@ module.exports.config = {
  name: "sins",
  version: "1.0.1",
  hasPermssion: 0,
- credits: "rX",
+ credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
  description: "",
  commandCategory: "edit-img",
  usages: " [text]",
