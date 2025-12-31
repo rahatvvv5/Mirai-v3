@@ -2,7 +2,7 @@ module.exports.config = {
 	name: "rank",
 	version: "2.0.0",
 	hasPermssion: 0,
-	credits: "rX",
+	credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
 	description: "View Member Rankings",
 	commandCategory: "Group",
 	usages: " [user] or [tag]",
