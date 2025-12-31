@@ -3,10 +3,10 @@ const fs = require("fs-extra");
 const path = require("path");
 
 module.exports.config = {
-  name: "message",
+  name: "mes",
   version: "3.5.0",
   hasPermssion: 2,
-  credits: "rX Abdullah",
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "Send announcement with optional image/GIF/video/text (reply message optional) to all groups",
   commandCategory: "system",
   usages: "[your message] (reply to media/text optional)",
@@ -51,16 +51,15 @@ module.exports.run = async ({ api, event, args }) => {
     return api.sendMessage("📢 Use like this:\n!message [your message]\n(or reply to media/text)", event.threadID, event.messageID);
   }
 
-  const title = "📣 ANNOUNCEMENT";
+  const title = "📢𝗥𝗮𝗵𝗮𝘁 𝗕𝗼𝘀𝘀 𝗡𝗼𝘁𝗶𝗰𝗲📢";
   let msg = "";
 
   if (input) {
     msg =
-`╭──── [ ${title} ] ────╮
+`  ${title}\n━━━━━━━━━━━━━━━━━━
 
 ${input}
-
-╰────────────────────────────╯`;
+`;
   }
 
   try {
