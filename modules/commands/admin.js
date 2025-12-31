@@ -1,8 +1,8 @@
 module.exports.config = {
 	name: "admin",
 	version: "1.0.5",
-	hasPermssion: 0,
-	credits: "rX",
+	hasPermssion: 2,
+	credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
 	description: "Enable or disable admin-only command mode",
 	commandCategory: "User",
 	usages: "Toggle admin / moderator only mode",
