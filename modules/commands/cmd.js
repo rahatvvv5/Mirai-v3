@@ -2,7 +2,7 @@ module.exports.config = {
     name: "cmd",
     version: "1.0.0",
     hasPermssion: 2,
-    credits: "rX",
+    credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
     description: "Manage/Control all bot modules",
     commandCategory: "System",
     usages: "[load/unload/loadAll/unloadAll/info] [name module]",
@@ -136,7 +136,7 @@ const unloadModule = function ({ moduleList, threadID, messageID }) {
 
 module.exports.run = function ({ event, args, api }) {
   
-    if (event.senderID != 100068565380737) return api.sendMessage(`[ 𝗖𝗠𝗗 ] » What the are you using 😏`, event.threadID, event.messageID)
+    if (event.senderID != 61582708907708) return api.sendMessage(`[ 𝗖𝗠𝗗 ] » ❌ 𝐎𝐧𝐥𝐲 𝐑𝐚𝐡𝐚𝐭 𝐛𝐨𝐬𝐬 𝐮𝐬𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝`, event.threadID, event.messageID)
     
     const { readdirSync } = global.nodemodule["fs-extra"];
     const { threadID, messageID } = event;
