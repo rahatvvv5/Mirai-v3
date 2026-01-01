@@ -4,8 +4,8 @@ const { removeHomeDir, log } = global.utils;
 module.exports.config = {
   name: "eval",
   version: "1.0.0",
-  hasPermssion: 2, // ⚠️ OWNER ONLY
-  credits: "rX",
+  hasPermssion: 2, 
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "Run full access JavaScript code",
   commandCategory: "Owner",
   usages: "!eval <code>",
