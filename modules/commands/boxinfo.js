@@ -4,8 +4,8 @@ const request = require("request");
 module.exports.config = {
   name: "boxinfo",
   version: "2.2.0",
-  hasPermssion: 1,
-  credits: "Modified by RX Abdullah",
+  hasPermssion: 0,
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "Get stylish group info with same image system",
   commandCategory: "Box",
   usages: "groupinfo",
@@ -38,20 +38,20 @@ module.exports.run = async function ({ api, event }) {
 
   const msg = `
 ╭───× 𝐆𝐫𝐨𝐮𝐩 𝐈𝐧𝐟𝐨 ×───╮
-│ ᰔ 𝐌𝐚𝐫𝐢𝐚 × 𝐑𝐗 𝐂𝐡𝐚𝐭𝐛𝐨𝐭
-│ ───×
+│ 🔰𝐑𝐀𝐇𝐀𝐓 𝐁𝐎𝐓🔰
+│ ─────×
 │ 𝐍𝐚𝐦𝐞: ${groupName}
 │ 𝐆𝐫𝐨𝐮𝐩 𝐢𝐝: ${groupID}
 │ 𝐀𝐩𝐩𝐫𝐨𝐯𝐚𝐥: ${approvalMode}
 │ 𝐄𝐦𝐨𝐣𝐢: ${emoji}
-│ ───×
+│ ─────×
 │ 👥 𝐌𝐞𝐦𝐛𝐞𝐫𝐬: ${members}
 │ ♂️ 𝐌𝐚𝐥𝐞: ${male}
 │ ♀️ 𝐅𝐞𝐦𝐚𝐥𝐞: ${female}
-│ ───×
+│ ─────×
 │ 👑 𝐚𝐝𝐦𝐢𝐧𝐬 (${admins}):
 │ ${adminList.join("\n│ ")}
-│ ───×
+│ ─────×
 │ 💬 𝐓𝐨𝐭𝐚𝐥 𝐌𝐞𝐬𝐬𝐚𝐠𝐞: ${totalMsg} msgs
 ╰─────────────⧕
 `.trim();
