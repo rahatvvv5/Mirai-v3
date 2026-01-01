@@ -6,7 +6,7 @@ module.exports.config = {
   name: "getpix",
   version: "1.2",
   hasPermssion: 2,
-  credits: "𝐫𝐗",
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "Download and send video from Pixeldrain using file ID (auto unsent after 5 min)",
   commandCategory: "media",
   usages: "[fileID]",
