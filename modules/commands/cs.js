@@ -5,7 +5,7 @@ module.exports.config = {
   name: "cs",
   version: "1.0.3",
   hasPermssion: 0,
-  credits: "rX",
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   usePrefix: true,
   description: "Show command store",
   commandCategory: "system",
