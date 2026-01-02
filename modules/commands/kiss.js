@@ -6,7 +6,7 @@ module.exports.config = {
   name: "kiss",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "mirai-team",
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "Kiss the person you tag",
   commandCategory: "game",
   usages: "@tag",
