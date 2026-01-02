@@ -8,7 +8,7 @@ const API_ENDPOINT = "https://metakexbyneokex.fly.dev/images/generate";
 module.exports.config = {
     name: "meta",
     version: "1.2",
-    credits: "rX Abdullah",
+    credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
     description: "Meta AI Image Generator (Reply 1-4 / all)",
     usages: "!meta <prompt>",
     commandCategory: "AI",
