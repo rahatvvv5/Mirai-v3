@@ -2,7 +2,7 @@ module.exports.config = {
   name: "pair",
   version: "1.0.3",
   hasPermssion: 0,
-  credits: "rX Abdullah", //don't change my credit
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰", //don't change my credit
   description: "Pair two users with a fun compatibility score",
   commandCategory: "Picture",
   cooldowns: 5,
