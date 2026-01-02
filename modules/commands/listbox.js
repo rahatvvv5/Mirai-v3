@@ -1,7 +1,7 @@
 module.exports.config = {
   name: 'listbox',
   version: '1.0.1',
-  credits: '𝐫𝐗',
+  credits: '🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰',
   hasPermssion: 2,
   description: 'List threads where bot is active',
   commandCategory: 'System',
@@ -66,7 +66,7 @@ module.exports.run = async function({ api, event }) {
   // Sort by member count (descending)
   listthread.sort((a, b) => b.members - a.members);
 
-  let msg = '╭───× 𝐁𝐨𝐱 𝐋𝐢𝐬𝐭 ×───╮\n\n';
+  let msg = '╭───×🔰𝗕𝗼𝘅 𝗟𝗶𝘀𝘁🔰×───╮\n\n';
   let i = 1, groupid = [];
   const tidEmojis = ["☑", "➳", "ᰔ", "✦", "✿", "⧕"];
   const memberEmojis = ["♛", "❖", "✎", "⚘", "☘", "✿"];
