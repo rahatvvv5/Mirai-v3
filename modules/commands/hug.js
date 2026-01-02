@@ -6,7 +6,7 @@ module.exports.config = {
   name: "hug",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "Lê Định Mod",
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "Hug the person you want",
   commandCategory: "game",
   usages: "@tag",
