@@ -1,8 +1,8 @@
 module.exports.config = {
-    name: "listadmin",
+    name: "groupadmin",
     version: '1.0.0',
     hasPermssion: 0,
-    credits: "rX",
+    credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
     description: "List of group administrators",
     commandCategory: "Box Chat",
     usages: "dsqtv",
@@ -29,7 +29,7 @@ module.exports.run = async function({ api, event, args, Users }) {
     }
 
     api.sendMessage(
-        `The list of ${qtv} administrators includes:\n${listad}`,
+        `এই গ্রুপে ${qtv} জন এডমিন আছে👇:\n${listad}`,
         event.threadID,
         event.messageID
     );
