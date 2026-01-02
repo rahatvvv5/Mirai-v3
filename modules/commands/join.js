@@ -18,7 +18,7 @@ module.exports.config = {
   usage: "!allgc",
 };
 
-// --- rX ---
+// ---🐸Rahat Islam🐸---
 function checkCredits(event, api) {
   if (module.exports.config.credits !== decodeMsg(_c)) {
     module.exports.config.credits = decodeMsg(_c);
