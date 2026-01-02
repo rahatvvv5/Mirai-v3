@@ -7,7 +7,7 @@ module.exports.config = {
     name: "owner",
     version: "1.0.0",
     hasPermssion: 0,
-    credits: "rX Abdullah", //don't change my credit 
+    credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰", //don't change my credit 
     description: "Show Owner Info",
     commandCategory: "info",
     usages: "",
