@@ -5,7 +5,7 @@ module.exports.config = {
   name: "japan",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "rX",
+  credits: "🔰𝐑𝐀𝐇𝐀𝐓 𝐈𝐒𝐋𝐀𝐌🔰",
   description: "japani girls pp",
   commandCategory: "Random-IMG",
   usages: "",
@@ -204,6 +204,6 @@ module.exports.run = async({api,event,args,client,Users,Threads,__GLOBAL,Currenc
 "https://i.imgur.com/85pRryp.jpg",
 "https://i.imgur.com/FhC4jXa.jpg",
      ];
-   var callback = () => api.sendMessage({body:`𝗚𝗮́𝗶 𝗡𝗵𝗮̣̂𝘁 𝗡𝗲̀ 𝗠𝗲̂̀ 𝗫𝗮́ 𝗟𝗮̀ 𝗛𝗲̂́ \n𝗦𝗼̂́ 𝗔̉𝗻𝗵: ${link.length}`,attachment: fs.createReadStream(__dirname + "/cache/49.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/49.jpg"));  
+   var callback = () => api.sendMessage({body:`জাপানের মেয়েগুলো আসলেই মাল🫤`,attachment: fs.createReadStream(__dirname + "/cache/49.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/49.jpg"));  
       return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/49.jpg")).on("close",() => callback());
    };
