@@ -1,124 +1,191 @@
-const fs = require("fs");
+const fs = require("fs-extra");
 const path = require("path");
 
 module.exports.config = {
-  name: "help",
-  version: "4.3.0",
-  hasPermssion: 0,
-  credits: "rX",
-  usePrefix: true,
-  description: "Paged help menu 2 pages + random GIF attached both pages, auto unsend 15s",
-  commandCategory: "system",
-  usages: "[command name | page number]",
-  cooldowns: 5,
+	name: "help",
+	version: "2.0.4",
+	hasPermssion: 0,
+	credits: "🔰Rahat Islam🔰",
+	description: "Shows all commands with details",
+	commandCategory: "system",
+	usages: "[command name/page number]",
+	cooldowns: 5,
+	envConfig: {
+		autoUnsend: true,
+		delayUnsend: 50
+	}
 };
 
-module.exports.run = async function ({ api, event, args }) {
-  try {
-    const commandDir = __dirname;
-    const files = fs.readdirSync(commandDir).filter(f => f.endsWith(".js"));
-
-    let commands = [];
-    for (let file of files) {
-      try {
-        const cmd = require(path.join(commandDir, file));
-        if (!cmd.config) continue;
-        commands.push({
-          name: cmd.config.name || file.replace(".js", ""),
-          category: cmd.config.commandCategory || "Other",
-          description: cmd.config.description || "No description available.",
-          author: cmd.config.credits || "Unknown",
-          version: cmd.config.version || "N/A",
-          usages: cmd.config.usages || "No usage info",
-          cooldowns: cmd.config.cooldowns || "N/A",
-        });
-      } catch {}
-    }
-
-    // ---------- Command detail ----------
-    if (args[0] && isNaN(args[0])) {
-      const find = args[0].toLowerCase();
-      const cmd = commands.find(c => c.name.toLowerCase() === find);
-      if (!cmd)
-        return api.sendMessage(`❌ Command "${find}" not found.`, event.threadID, event.messageID);
-
-      let msg = `╭──❏ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗗𝗘𝗧𝗔𝗜𝗟 ❏──╮\n`;
-      msg += `│ ✧ Name: ${cmd.name}\n`;
-      msg += `│ ✧ Category: ${cmd.category}\n`;
-      msg += `│ ✧ Version: ${cmd.version}\n`;
-      msg += `│ ✧ Author: ${cmd.author}\n`;
-      msg += `│ ✧ Cooldowns: ${cmd.cooldowns}s\n`;
-      msg += `╰─────────────────────⭓\n`;
-      msg += `📘 Description: ${cmd.description}\n`;
-      msg += `📗 Usage: ${global.config.PREFIX}${cmd.name} ${cmd.usages}`;
-
-      return api.sendMessage(msg, event.threadID, (err, info) => {
-        if (!err) setTimeout(() => api.unsendMessage(info.messageID), 15000);
-      }, event.messageID);
-    }
-
-    // ---------- Pagination ----------
-    const page = parseInt(args[0]) || 1;
-    const commandsPerPage = Math.ceil(commands.length / 2);
-    const start = (page - 1) * commandsPerPage;
-    const end = start + commandsPerPage;
-    const pageCommands = commands.slice(start, end);
-
-    // Group by category
-    const categories = {};
-    for (let cmd of pageCommands) {
-      if (!categories[cmd.category]) categories[cmd.category] = [];
-      categories[cmd.category].push(cmd.name);
-    }
-
-    let msg = `╭──❏ 𝐀𝐮𝐭𝐨 𝐃𝐞𝐭𝐞𝐜𝐭 𝐇𝐞𝐥𝐩 - Page ${page} ❏──╮\n`;
-    msg += `│ ✧ Total Commands: ${commands.length}\n`;
-    msg += `│ ✧ Prefix: ${global.config.PREFIX}\n`;
-    msg += `╰─────────────────────⭓\n\n`;
-
-    // Category Listing
-    for (let [cat, cmds] of Object.entries(categories)) {
-      msg += `╭─‣ 𝗖𝗮𝘁𝗲𝗴𝗼𝗿𝘆 : ${cat}\n`;
-      for (let i = 0; i < cmds.length; i += 2) {
-        const row = [`「${cmds[i]}」`];
-        if (cmds[i + 1]) row.push(`✘ 「${cmds[i + 1]}」`);
-        msg += `├‣ ${row.join(" ")}\n`;
-      }
-      msg += `╰────────────◊\n\n`;
-    }
-
-    msg += `⭔ Type ${global.config.PREFIX}help [command] to see details\n`;
-    msg += `╭─[⋆˚🦋𝐌𝐚𝐫𝐢𝐚 × 𝐫𝐗🎀⋆˚]\n`;
-    msg += `╰‣ 𝐀𝐝𝐦𝐢𝐧 : 𝐫𝐗 𝐀𝐛𝐝𝐮𝐥𝐥𝐚𝐡\n`;
-    msg += `╰‣ 𝐑𝐢𝐩𝐨𝐫𝐭 : !callad (yourmsg)\n`;
-    msg += `╰‣ 𝐓𝐲𝐩𝐞 !help2 𝐭𝐨 𝐬𝐞𝐞 𝐧𝐞𝐱𝐭 𝐩𝐚𝐠𝐞\n`;
-    // Attach random GIF for both pages
-    let attachment = null;
-    const cache = path.join(__dirname, "noprefix");
-    if (fs.existsSync(cache)) {
-      const names = ["abdullah1", "abdullah2", "abdullah3"];
-      const exts = [".gif", ".mp4", ".webp", ".png", ".jpg"];
-      let found = [];
-
-      fs.readdirSync(cache).forEach(file => {
-        const lower = file.toLowerCase();
-        if (names.some(n => lower.startsWith(n))) {
-          if (exts.includes(path.extname(lower)))
-            found.push(path.join(cache, file));
-        }
-      });
-
-      if (found.length > 0) {
-        const pick = found[Math.floor(Math.random() * found.length)];
-        attachment = fs.createReadStream(pick);
-      }
-    }
-
-    api.sendMessage({ body: msg, attachment: attachment }, event.threadID, (err, info) => {
-      if (!err) setTimeout(() => { try { api.unsendMessage(info.messageID); } catch {} }, 15000);
-    }, event.messageID);
-
-  } catch (err) {
-    api.sendMessage("❌ Error: " + err.message, event.threadID, event.messageID);
-  }
+module.exports.languages = {
+	"en": {
+		"moduleInfo": `╭━━━━━━━━━━━━━━━━╮
+┃ ✨ 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐍𝐅𝐎 ✨
+┣━━━━━━━━━━━┫
+┃ 🔖 Name: %1
+┃ 📄 Usage: %2
+┃ 📜 Description: %3
+┃ 🔑 Permission: %4
+┃ 👨‍💻 Credit:🔰Rahat Islam🔰
+┃ 📂 Category: %6
+┃ ⏳ Cooldown: %7s
+┣━━━━━━━━━━━━━━━━┫
+┃ ⚙ Prefix: %8
+┃ 🤖 Bot Name: %9
+┃ 👑 Owner👉 m.me/61582708907708
+╰━━━━━━━━━━━━━━━━╯`,
+		"helpList": "[ There are %1 commands. Use: \"%2help commandName\" to view more. ]",
+		"user": "User",
+		"adminGroup": "Admin Group",
+		"adminBot": "Admin Bot"
+	}
 };
+
+const videoPath = path.resolve("help.mp4");
+function getVideoAttachment() {
+	return fs.existsSync(videoPath) ? [fs.createReadStream(videoPath)] : [];
+}
+
+// ============================
+// 🔹 handleEvent
+// ============================
+module.exports.handleEvent = function ({ api, event, getText }) {
+	const { commands } = global.client;
+	const { threadID, messageID, body } = event;
+
+	if (!body || !body.startsWith("help")) return;
+	const args = body.trim().split(/\s+/);
+	if (args.length < 2 || !commands.has(args[1].toLowerCase())) return;
+
+	const threadSetting = global.data.threadData.get(parseInt(threadID)) || {};
+	const command = commands.get(args[1].toLowerCase());
+	const prefix = threadSetting.PREFIX || global.config.PREFIX;
+
+	const detail = getText("moduleInfo",
+		command.config.name,
+		command.config.usages || "Not Provided",
+		command.config.description || "Not Provided",
+		command.config.hasPermssion,
+		command.config.credits || "Unknown",
+		command.config.commandCategory || "Unknown",
+		command.config.cooldowns || 0,
+		prefix,
+		global.config.BOTNAME || "🔰 𝗥𝗮𝗵𝗮𝘁_𝗕𝗼𝘁 🔰"
+	);
+
+	api.sendMessage({ body: detail, attachment: getVideoAttachment() }, threadID, (err, info) => {
+		if (err) return;
+
+		const { autoUnsend, delayUnsend } = module.exports.config.envConfig;
+		if (autoUnsend) {
+			setTimeout(() => {
+				api.unsendMessage(info.messageID);
+			}, delayUnsend * 1000);
+		}
+	}, messageID);
+};
+
+// ============================
+// 🔰
+// ============================
+module.exports.run = async function({ api, event, args, getText }) {
+	const { commands } = global.client;
+	const { threadID, messageID } = event;
+	const threadSetting = global.data.threadData.get(parseInt(threadID)) || {};
+	const prefix = threadSetting.PREFIX || global.config.PREFIX;
+
+	api.sendMessage("▒▒▒▒▒▒▒▒▒▒ 0% ✨", threadID, async (err, info) => {
+		if (err) return console.error(err);
+		const progressMsgID = info.messageID;
+
+		let step = 0;
+		const interval = 120;
+		const progressBarLength = 10;
+
+		const progressInterval = setInterval(() => {
+			step += 1;
+			if (step > 10) {
+				clearInterval(progressInterval);
+				setTimeout(() => {
+					api.unsendMessage(progressMsgID);
+					sendHelpInfo(api, threadID, messageID, args, getText, prefix, commands);
+				}, 1000);
+				return;
+			}
+
+			const filledBlocks = "█".repeat(step);
+			const emptyBlocks = "▒".repeat(progressBarLength - step);
+
+			const spark = step % 2 === 0 ? "✨" : "💎";
+			const percent = step * 10;
+			api.editMessage(`${filledBlocks}${emptyBlocks} ${percent}% ${spark}`, progressMsgID, threadID);
+
+		}, interval);
+	});
+};
+
+// ============================
+// 🔹 মূল help info function
+// ============================
+function sendHelpInfo(api, threadID, messageID, args, getText, prefix, commands) {
+	if (args[0] && commands.has(args[0].toLowerCase())) {
+		const command = commands.get(args[0].toLowerCase());
+		const detailText = getText("moduleInfo",
+			command.config.name,
+			command.config.usages || "Not Provided",
+			command.config.description || "Not Provided",
+			command.config.hasPermssion,
+			command.config.credits || "Unknown",
+			command.config.commandCategory || "Unknown",
+			command.config.cooldowns || 0,
+			prefix,
+			global.config.BOTNAME || "🔰 𝗥𝗮𝗵𝗮𝘁_𝗕𝗼𝘁 🔰"
+		);
+
+		api.sendMessage({ body: detailText, attachment: getVideoAttachment() }, threadID, (err, info) => {
+			if (err) return;
+
+			const { autoUnsend, delayUnsend } = module.exports.config.envConfig;
+			if (autoUnsend) {
+				setTimeout(() => {
+					api.unsendMessage(info.messageID);
+				}, delayUnsend * 1000);
+			}
+		}, messageID);
+
+		return;
+	}
+
+	const arrayInfo = Array.from(commands.keys()).filter(Boolean).sort();
+	const page = Math.max(parseInt(args[0]) || 1, 1);
+	const numberOfOnePage = 880;
+	const totalPages = Math.ceil(arrayInfo.length / numberOfOnePage);
+	const start = numberOfOnePage * (page - 1);
+	const helpView = arrayInfo.slice(start, start + numberOfOnePage);
+
+	const msg = helpView.map(cmdName => `┃🔹 ✪ ${cmdName}`).join("\n");
+
+	const text = `╭━━━━━━━━━━━━━━━━╮
+┃ 🔰 𝗥𝗮𝗵𝗮𝘁_𝗕𝗼𝘁 🔰
+┃📜 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐋𝐈𝐒𝐓 📜
+┣━━━━━━━━━━━━━━━┫
+┃ 📄 Page: ${page}/${totalPages}
+┃ 🧮 Total: ${arrayInfo.length}
+┣━━━━━━━━━━━━━━━━┫
+${msg}
+┣━━━━━━━━━━━━━━━━┫
+┃ ⚙ Prefix: ${prefix}
+┃ 🤖 Bot Name: ${global.config.BOTNAME || "🔰𝗥𝗮𝗵𝗮𝘁_𝗕𝗼𝘁🔰"}
+┃ 👑 Owner👉 m.me/61582708907708
+╰━━━━━━━━━━━━━━━━╯`;
+
+	api.sendMessage({ body: text, attachment: getVideoAttachment() }, threadID, (err, info) => {
+		if (err) return;
+
+		const { autoUnsend, delayUnsend } = module.exports.config.envConfig;
+		if (autoUnsend) {
+			setTimeout(() => {
+				api.unsendMessage(info.messageID);
+			}, delayUnsend * 1000);
+		}
+	}, messageID);
+}
