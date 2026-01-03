@@ -17,6 +17,13 @@
         <img src="https://i.imgur.com/I0kvVfu.jpeg" alt="Logo">
     </a>
 
+	
+<br />
+<p align="center">
+    <a href="https://github.com/rxabdullah007/Maria-v3">
+        <img src="https://i.imgur.com/I0kvVfu.jpeg" alt="Logo">
+    </a>
+
 <h3 align="center">MARIA CHATBOT</h3>
 
 <p align="center">
