@@ -14,7 +14,7 @@
 <br />
 <p align="center">
     <a href="https://github.com/rxabdullah007/Maria-v3">
-        <img src="https://i.imgur.com/gU1MsAW.gif" alt="Logo">
+        <img src="https://i.imgur.com/bvxp03h.gif" alt="Logo">
     </a>
 
 	
