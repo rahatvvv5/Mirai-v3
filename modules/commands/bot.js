@@ -28,7 +28,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
      return api.sendMessage("", threadID);
    };
    
-    if ((event.body.toLowerCase() == "help") || (event.body.toLowerCase() == "help")) {
+    if ((event.body.toLowerCase() == "..........") || (event.body.toLowerCase() == "")) {
      return api.sendMessage("type !help", threadID);
    };
   
